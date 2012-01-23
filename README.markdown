@@ -11,11 +11,11 @@ Livestatus is a broker module for for [Nagios](http://nagios.org) which is a sys
 ## Getting Started ##
 * Download the latest release
 
-	wget https://github.com/hey-johnnypark/livestatus4j/zipball/master
+		wget https://github.com/hey-johnnypark/livestatus4j/zipball/master
 
 * Extract the project
 	
-	tar xvf livestatus4j-xxx.zip
+		tar xvf livestatus4j-xxx.zip
 
 * Include the .jar file in your Java Buildpath 
 
