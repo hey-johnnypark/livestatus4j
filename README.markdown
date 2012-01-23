@@ -11,9 +11,27 @@ Livestatus is a broker module for for [Nagios](http://nagios.org) which is a sys
 ## Getting Started ##
 * Download the latest release
 
- wget https://github.com/hey-johnnypark/livestatus4j/zipball/master
+	wget https://github.com/hey-johnnypark/livestatus4j/zipball/master
 
 * Extract the project
+	
+	tar xvf livestatus4j-xxx.zip
 
 * Include the .jar file in your Java Buildpath 
+
+* Use it!
+
+	import foo.bar.livestatus.LiveStatusConn;
+	import foo.bar.livestatus.LiveStatusQuery;
+	import static foo.bar.livestatus.LiveStatusTable.*;
+
+	LiveStatusConn lsc = new LiveStatusConn("nagios-host", 6557); //set up the tcp connection
+	LiveStatusQuery lsq = new LiveStatusQuery(HOSTS).addColumn("address").addColumn("name"); //create the query and add specific columns you like to query
+	LiveStatusResult lsr= lsc.query(lsq); //lsq is an Array of LiveStatusResultEntry instances 
+	LiveStatusResultEntry lsre= lsr.get(0); //retrieve the first entry
+
+	System.out.println("Results count: " + lsr.size()); //how many entries have been retrieved
+
+
+
 
