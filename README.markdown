@@ -21,16 +21,18 @@ Livestatus is a broker module for for [Nagios](http://nagios.org) which is a sys
 
 * Use it!
 
-	import foo.bar.livestatus.LiveStatusConn;
-	import foo.bar.livestatus.LiveStatusQuery;
-	import static foo.bar.livestatus.LiveStatusTable.*;
+		import foo.bar.livestatus.LiveStatusConn;
+		import foo.bar.livestatus.LiveStatusQuery;
+		import static foo.bar.livestatus.LiveStatusTable.*;
 
-	LiveStatusConn lsc = new LiveStatusConn("nagios-host", 6557); //set up the tcp connection
-	LiveStatusQuery lsq = new LiveStatusQuery(HOSTS).addColumn("address").addColumn("name"); //create the query and add specific columns you like to query
-	LiveStatusResult lsr= lsc.query(lsq); //lsq is an Array of LiveStatusResultEntry instances 
-	LiveStatusResultEntry lsre= lsr.get(0); //retrieve the first entry
-
-	System.out.println("Results count: " + lsr.size()); //how many entries have been retrieved
+		LiveStatusConn lsc = new LiveStatusConn("nagios-host", 6557); //set up the tcp connection
+		LiveStatusQuery lsq = new LiveStatusQuery(HOSTS).addColumn("address").addColumn("name"); //create the query and add specific columns you like to query
+		LiveStatusResult lsr= lsc.query(lsq); //lsq is an Array of LiveStatusResultEntry instances 
+		LiveStatusResultEntry lsre= lsr.get(0); //retrieves the first entry
+		
+		System.out.println("HOST_NAME: " + lsre.get("name")); //prints the host name
+		System.out.println("HOST_ADDRESS: " + lsre.get("address")); //prints the host address
+		System.out.println("Results count: " + lsr.size()); //how many entries have been retrieved in total
 
 
 
