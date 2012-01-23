@@ -21,9 +21,11 @@ Livestatus is a broker module for for [Nagios](http://nagios.org) which is a sys
 
 * Use it!
 
+		import static foo.bar.livestatus.LiveStatusTable.HOSTS;
 		import foo.bar.livestatus.LiveStatusConn;
 		import foo.bar.livestatus.LiveStatusQuery;
-		import static foo.bar.livestatus.LiveStatusTable.*;
+		import foo.bar.livestatus.LiveStatusResult;
+		import foo.bar.livestatus.LiveStatusResultEntry;
 
 		LiveStatusConn lsc = new LiveStatusConn("nagios-host", 6557); //set up the tcp connection
 		LiveStatusQuery lsq = new LiveStatusQuery(HOSTS).addColumn("address").addColumn("name"); //create the query and add specific columns you like to query
